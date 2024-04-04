@@ -1,4 +1,4 @@
-package Mayo.PrimerosEjemplosThread;
+package Abril.PrimerosEjemplosThread;
 
 /**
  * EjemploThread1

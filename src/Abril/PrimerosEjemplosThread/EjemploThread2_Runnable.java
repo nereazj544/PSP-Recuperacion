@@ -1,4 +1,4 @@
-package Mayo.PrimerosEjemplosThread;
+package Abril.PrimerosEjemplosThread;
 
 public class EjemploThread2_Runnable {
     public static void main(String[] args) {
