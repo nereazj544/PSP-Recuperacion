@@ -1,6 +1,9 @@
 # Realizado en clase
 
 >[!NOTE]
-> Dia: 08/04/2024 
+> Dia: *_08/04/2024_* 
 > - Ejercicio 1 y 2.
 > - Contador y Main_Contador.
+> ----------
+> EJERCICIOS QUE MANDO JULIO PA HACER:
+>  - Ejercicio 3 y ir haciendo cosas del tema.
