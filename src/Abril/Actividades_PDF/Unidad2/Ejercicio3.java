@@ -46,6 +46,7 @@ public class Ejercicio3 {
     }
 
     public static class Tarea implements Runnable {
+        //! STATIC ES MUY IMPORTANTE SINO LA MITAD DE LAS COSAS NO FUNCIONAN
 
         private final String file;
 
