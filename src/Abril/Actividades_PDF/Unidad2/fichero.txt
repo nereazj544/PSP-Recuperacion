@@ -1,0 +1,3 @@
+Este es otro ejemplo de un fichero de texto.
+Contiene diferentes palabras y frases.
+También tiene números y símbolos, como: 1234567890#@!

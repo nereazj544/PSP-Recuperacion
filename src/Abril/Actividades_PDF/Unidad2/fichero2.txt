@@ -1,0 +1,3 @@
+Este es un ejemplo de un fichero de texto.
+Tiene varias líneas y palabras.
+También tiene algunos caracteres especiales, como: ¡?¿,.
