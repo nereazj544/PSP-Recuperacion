@@ -1,5 +1,11 @@
 package ProgramacionMultihilos;
 
+
+//Movida con los ::
+
+// Usando referencias a metodos usando meros lo del "tic::Tarea" es una referencia a estancia.
+
+	
 public class Ejercico2 {
 private String sonido;
 
