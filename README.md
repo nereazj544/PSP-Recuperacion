@@ -1,3 +1,3 @@
-## PSP - Recuperacion (Abril - Mayo - Junio)
+# PSP - Recuperacion (Abril - Mayo - Junio)
 Abril: 
 Programacion Multihilos.

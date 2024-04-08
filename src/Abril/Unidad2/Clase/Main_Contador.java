@@ -1,4 +1,4 @@
-package ProgramacionMultihilos;
+package Abril.Unidad2.Clase;
 
 public class Main_Contador implements Runnable {
 	// Creacion del hilo

@@ -1,4 +1,4 @@
-package ProgramacionMultihilos;
+package Abril.Unidad2.Clase;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
