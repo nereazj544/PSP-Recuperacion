@@ -46,9 +46,7 @@ public class Ejercicio3_secuencial {
 
                 System.out.println("Nombre del fichero: " + file + "\n Lineas: " + linea + ", Palabras: " + palabras + ", Caracteres: " + caractere + "\n");
                 
-            } catch (Exception e) {
-                // TODO: handle exception
-            }
+            } catch (Exception e) {}
         }
 
         long end = System.currentTimeMillis();
