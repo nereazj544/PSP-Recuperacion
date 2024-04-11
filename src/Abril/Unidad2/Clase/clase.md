@@ -7,3 +7,7 @@
 > ----------
 > EJERCICIOS QUE MANDO JULIO PA HACER:
 >  - Ejercicio 3 y ir haciendo cosas del tema.
+> ----------
+> Dia: *_11/04/2024_* 
+> - Ejercicio 6 (Banco del parque)
+> 
