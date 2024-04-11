@@ -10,4 +10,6 @@
 > ----------
 > Dia: *_11/04/2024_* 
 > - Ejercicio 6 (Banco del parque)
-> 
+> ----------
+> EJERCICIOS QUE MANDO JULIO PA HACER:
+> Intentar hacer el Barbero Dormilon
