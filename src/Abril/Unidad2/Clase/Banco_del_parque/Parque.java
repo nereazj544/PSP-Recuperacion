@@ -1,6 +1,6 @@
 package Abril.Unidad2.Clase.Banco_del_parque;
 
-public class Ejercicio6 {
+public class Parque {
 
 
 
