@@ -6,12 +6,6 @@
 
 ------------------------------------------------------------
 
-
->[!NOTE]
-> Tener en cuenta la arquitectura del TCP/Ip (No confundir con la OSI _Esa es para redes_)
->
-> https://docs.oracle.com/javase/8/docs/api/java/net/Socket.html
-
 ## Arquitectura TCP/IP:
 
 5. Aplicacines
@@ -23,6 +17,12 @@
 2. Enlace
 
 1. Fisica
+>[!NOTE]
+> Tener en cuenta la arquitectura del TCP/Ip (No confundir con la OSI _Esa es para redes_)
+>
+> https://docs.oracle.com/javase/8/docs/api/java/net/Socket.html
+
+------------------------------------------------------------
 
 ## Desarollo con Java
 Socket (UDP, TCP)
