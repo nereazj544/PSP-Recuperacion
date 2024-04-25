@@ -39,6 +39,9 @@ SERVIDOR -> IP: 170.4.5.6 ========= CLIENTE -> IP: 60.10.20.21
 
 El servidor crea un server socket que esta conectado a un puerto determinado (_usar los puertos REGISTRADOS, algunos de ellos estan libres_). 
 
+> [!IMPORTANT]
+>
+>Siempre se ha de escoger un protocolo (_hacemos referencia a la capa Aplicacion_), esto hara que Cliente y Server tengan conexion.
 
 --------------------------------------------------------------------
 > [!IMPORTANT]
