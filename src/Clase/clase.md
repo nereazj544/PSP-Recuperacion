@@ -15,12 +15,24 @@
 > Intentar hacer el Barbero Dormilon
 > ----------
 > Dia: *_15/04/2024_* 
+> - Ejercicio: Fumadores (5)
+> ----------
+> EJERCICIOS QUE MANDO JULIO PA HACER:
+> ----------
+> Dia: *_20/04/2024_* 
+> - Ejercicio FUMADORES
+> ----------
+> EJERCICIOS QUE MANDO JULIO PA HACER: Fumadores
+> ----------
+> Dia: *_22/04/2024_* 
+> - Ejercicio: fumadores_semaforos o lock usar recursos de alto nivel (tambien Executor)
+> - A finales de mayo se hara el examen
+> ----------
+> EJERCICIOS QUE MANDO JULIO PA HACER: 
+> ----------
+> Dia: *_/04/2024_* 
 > - Ejercicio 
 > ----------
-> EJERCICIOS QUE MANDO JULIO PA HACER:
-> ----------
-> Dia: *_//2024_* 
-> - Ejercicio
-> ----------
-> EJERCICIOS QUE MANDO JULIO PA HACER:
+> EJERCICIOS QUE MANDO JULIO PA HACER: 
+
 
