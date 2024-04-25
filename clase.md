@@ -26,6 +26,7 @@
 > ----------
 > Dia: *_22/04/2024_* 
 > - Ejercicio: fumadores_semaforos o lock usar recursos de alto nivel (tambien Executor)
+> - Tambien los ejercicos con la interfaz grafica porpocionada en el ejercicio de Fumadores. (_TODOS LOS JODIDOS EJERCICIOS CON INTERFAZ GRAFICA_)
 > - A finales de mayo se hara el examen
 > ----------
 > EJERCICIOS QUE MANDO JULIO PA HACER: 
