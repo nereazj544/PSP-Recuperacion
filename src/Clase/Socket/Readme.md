@@ -23,10 +23,11 @@
 1. Fisica
 
 ## Desarollo con Java
-Socket (UDP, TCP)
+Socket (UDP, TCP).
+
 Cliente --- Servidor
 
- - Siguiendo el modelo ⤴️ TCP
+_Siguiendo el modelo ⤴️ TCP_
 
 _Se debe de especificar con el puerto y la ip._
 Cuando se crean los scoket se especifica en el puerto, y la ip en un string o con IpAddress.
