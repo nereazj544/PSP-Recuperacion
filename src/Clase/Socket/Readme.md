@@ -2,11 +2,11 @@
 > Tener en cuenta la arquitectura del TCP/Ip (No confundir con la OSI _Esa es para redes_)
 
 Arquitectura:
-    5. Aplicacines
-    4. _Transporte  > UDP, TCP_ (Puerto 80 > HTTP/Apache)
-    3. _Red > IP_
-    2. Enlace
-    1. Fisica
+5. Aplicacines
+4. _Transporte  > UDP, TCP_ (Puerto 80 > HTTP/Apache)
+3. _Red > IP_
+2. Enlace
+1. Fisica
 
 Desarollo con Java: 
     Socket (UDP, TCP)
