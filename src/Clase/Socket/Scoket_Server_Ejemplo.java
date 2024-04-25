@@ -21,22 +21,9 @@ public class Scoket_Server_Ejemplo {
         while (true) {
             // ! Creamos el hilo en el servidor ⬇️
             Socket socket = serverSocket.accept();
-            e.execute(new HiloRespuesta(socket));
+            e.execute(new TareaRespuesta(socket));
 
-            /*
-             // ! Esto es lo que habiamos echo a principio de curso:
-             * try (BufferedReader in = new BufferedReader(new
-             * InputStreamReader(socket.getInputStream()));
-             * PrintWriter out = new PrintWriter(new
-             * OutputStreamWriter(socket.getOutputStream()))){
-             * String linea;
-             * while ((linea = in.readLine()) != null) {
-             * System.out.println(linea);
-             * out.println(linea);
-             * out.flush();
-             * }
-             * }
-             */
+            
         }
 
     }
