@@ -5,7 +5,7 @@ Arquitectura:
 
 5. Aplicacines
 
-4. _Transporte  > UDP, TCP_ (Puerto 80 > HTTP/Apache). [(https://www.redeszone.net/tutoriales/configuracion-puertos/puertos-tcp-udp/)](url)
+4. _Transporte  > UDP, TCP_ (Puerto 80 > HTTP/Apache). _https://www.redeszone.net/tutoriales/configuracion-puertos/puertos-tcp-udp/_
 
 3. _Red > IP_
 
