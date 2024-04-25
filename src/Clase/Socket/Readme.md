@@ -30,7 +30,6 @@ El servidor crea un server socket que esta conectado a un puerto determinado (_u
 
 
 > [!IMPORTANT]
-> Videos de interes
-> https://www.youtube.com/playlist?list=PLaxZkGlLWHGVpAWynB1UwnIq_yOsVyGYB
->Chismes tambien de interes
-> https://www.redeszone.net/tutoriales/configuracion-puertos/puertos-tcp-udp/
+> Videos de interes: https://www.youtube.com/playlist?list=PLaxZkGlLWHGVpAWynB1UwnIq_yOsVyGYB
+>---------------------------------------------------------------------------------------------------------
+> Chismes tambien de interes:  https://www.redeszone.net/tutoriales/configuracion-puertos/puertos-tcp-udp/
