@@ -1,4 +1,4 @@
-package ACTIVIDADES_ENTREGA.Fumadores.Fork;
+package ACTIVIDADES_ENTREGA.Banco_Del_Parque;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -21,14 +21,13 @@ public class Main extends JFrame implements WindowListener {
 	private JButton pausa = new JButton("PAUSA");
 	private JButton reanudar = new JButton("REANUDAR");
 
-	private Mesa mesa = new Mesa();
-	private Agente agente = new Agente(mesa);
-	private Fumador f1 = new Fumador("Fernándo", Ingrediente.TABACO, mesa);
-	private Fumador f2 = new Fumador("Manuela", Ingrediente.CERILLAS, mesa);
-	private Fumador f3 = new Fumador("Carmen", Ingrediente.PAPEL, mesa);
+
+    //! BANCO
+    private Banco b = new Banco(10);
+
 
 	public Main() {
-		super("Fumadores");
+		super("Banco del Parque");
 		this.addWindowListener(this);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		Container contentPane = getContentPane();
@@ -52,61 +51,24 @@ public class Main extends JFrame implements WindowListener {
 		SwingUtilities.invokeLater(() -> textArea.append(msg));
 	}
 
-	private synchronized void pausa(ActionEvent e) {
+	private void pausa(ActionEvent e) {
 		pausa.setEnabled(false);
 		reanudar.setEnabled(true);
 		textArea.append("PAUSADO\n");
-		// TODO pausar fumadores y agente
-		f1.pausar();
-		f2.pausar();
-		f3.pausar();
-		agente.pausar();
-		// ! CODIGO AÑADIDO.
-
-
-		/*
-		 * ? Con el metodo en desuso de "suspend" si que funciona.
-		 * f1.suspend();
-		 * f2.suspend();
-		 * f3.suspend();
-		 * agente.suspend();
-		 */
-		// Interrumpimos a los hilos
-		// f1.interrupt();
-		// f2.interrupt();
-		// f3.interrupt();
-		// agente.interrupt();
-
-	
+		
 	}
 
-	private synchronized void reanudar(ActionEvent e) {
+	private void reanudar(ActionEvent e) {
 		pausa.setEnabled(true);
 		reanudar.setEnabled(false);
 		textArea.append("REANUDADO\n");
-		// TODO reanudar fumadores y agente
-		// ! CODIGO AÑADIDO.
-
-		/*
-		 * ? Con estos metodos si que funciona, pero estan en desuso.
-		 * agente.resume();
-		 * f1.resume();
-		 * f2.resume();
-		 * f3.resume();
-		 */
-		// notifyAll(); // Notificamos a todos los hilos
-		f1.reanudar();
-		f2.reanudar();
-		f3.reanudar();
-		agente.reanudar();
+		b.notify();
 	}
 
 	private void iniciar() {
 		setVisible(true);
-		f1.start();
-		f2.start();
-		f3.start();
-		agente.start();
+		
+
 	}
 
 	private static void crear() {
@@ -124,29 +86,10 @@ public class Main extends JFrame implements WindowListener {
 	@Override
 	public void windowClosing(WindowEvent e) {
 		// TODO finalizar hilos de forma ordenada antes de salir
-		// ! CODIGO AÑADIDO.
-
-		// f1.stop();
-		// f2.stop();
-		// f3.stop();
-		// agente.stop();
-
-		// Se detiene
-		f1.interrupt();
-		f2.interrupt();
-		f3.interrupt();
-		agente.interrupt();
-
-		// Se espera a que termine cada hilo
-		try {
-			f1.join();
-			f2.join();
-			f3.join();
-			agente.join();
-		} catch (Exception ek) {
-			// TODO: handle exception
-		}
 		System.exit(0);
+
+		
+
 	}
 
 	@Override

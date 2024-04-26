@@ -1,4 +1,4 @@
-package Clase.Scoket.Servidor_Echo;
+package Clase.Socket.Servidor_Echo;
 
 
 

@@ -1,4 +1,4 @@
-package Clase.Scoket;
+package Clase.Socket;
 
 import java.io.DataInput;
 import java.io.DataInputStream;

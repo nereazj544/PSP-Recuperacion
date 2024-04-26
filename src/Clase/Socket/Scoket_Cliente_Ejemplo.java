@@ -1,4 +1,4 @@
-package Clase.Scoket;
+package Clase.Socket;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;

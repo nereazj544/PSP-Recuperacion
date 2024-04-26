@@ -1,8 +1,8 @@
-package fp.dam.psp.fumadores;
+package ACTIVIDADES_ENTREGA.Fumadores.Fork;
 
 import java.util.HashSet;
 import java.util.stream.Collectors;
-import static fp.dam.psp.fumadores.Main.actualizar;
+import static ACTIVIDADES_ENTREGA.Fumadores.Fork.Main.actualizar;
 
 public class Mesa {
 

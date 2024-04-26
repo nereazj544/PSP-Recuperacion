@@ -11,7 +11,7 @@ public class Personas_Tarea extends Thread {
         this.banco = banco;
         // Hay más probabilidad de que salgan los numeros (Segun Julio).
         this.tpaseo = (long) ((Math.random() * 1000000) % 2001 + 100);
-        this.tpaseo = (long) ((Math.random() * 1000000) % 6001 + 100);
+        this.tsentado = (long) ((Math.random() * 1000000) % 6001 + 100);
 
         // this.tpaseo = (int) (Math.random() * 2000 + 100);
         // Hay un metodo más facil que es con la clase random

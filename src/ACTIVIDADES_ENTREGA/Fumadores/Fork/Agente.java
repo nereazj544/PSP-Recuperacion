@@ -1,6 +1,6 @@
-package Fork;
+package ACTIVIDADES_ENTREGA.Fumadores.Fork;
 
-import static fp.dam.psp.fumadores.Main.actualizar;
+import static ACTIVIDADES_ENTREGA.Fumadores.Fork.Main.actualizar;
 
 public class Agente extends Thread{
 
