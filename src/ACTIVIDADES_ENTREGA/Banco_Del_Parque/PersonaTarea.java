@@ -1,6 +1,8 @@
 package ACTIVIDADES_ENTREGA.Banco_Del_Parque;
 
-import javax.swing.JTextArea;
+import static ACTIVIDADES_ENTREGA.Fumadores.Fork.Main.actualizar;
+
+
 
 public class PersonaTarea extends Thread {
     private Banco b;
@@ -8,12 +10,12 @@ public class PersonaTarea extends Thread {
     private long paseo;
     private long sentado;
 
-    private JTextArea textArea;
+    // private JTextArea textArea;
 
-    public PersonaTarea(String name, Banco b, JTextArea textArea) {
+    public PersonaTarea(String name, Banco b) {
         super(name);
         this.b = b;
-        this.textArea = textArea;
+        // this.textArea = textArea;
         this.paseo = (long) ((Math.random() * 1000000) % 2001 + 100);
         this.sentado = (long) ((Math.random() * 1000000) % 6001 + 100);
     }
@@ -21,13 +23,13 @@ public class PersonaTarea extends Thread {
     @Override
     public void run() {
         try {
-           textArea.append(getName() + " llego al banco");
+           actualizar(getName() + " llego al banco");
             Thread.sleep(paseo);
             b.sentarse();
-            textArea.append(getName() + " sento al banco");
+            actualizar(getName() + " sento al banco");
             Thread.sleep(sentado);
             b.levantarse();
-            textArea.append(getName() + " se ha ido del banco");
+            actualizar(getName() + " se ha ido del banco");
 
         } catch (Exception e) {
         }
