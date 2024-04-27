@@ -2,6 +2,7 @@ package ACTIVIDADES_ENTREGA.Banco_Del_Parque;
 
 public class Banco {
     private int plazaslibres;
+    
 
     public Banco(int plazas) {
         plazaslibres = plazaslibres;

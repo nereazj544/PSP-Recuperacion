@@ -25,6 +25,9 @@ public class Main extends JFrame implements WindowListener {
     //! BANCO
     private Banco b = new Banco(10);
 
+	//! PERSONAS
+	private PersonaTarea[] pTareas;
+
 
 	public Main() {
 		super("Banco del Parque");
@@ -45,9 +48,17 @@ public class Main extends JFrame implements WindowListener {
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 		pack();
 		setLocationRelativeTo(null);
+
+
+		pTareas = new PersonaTarea[15];
+		for (int i = 0; i < pTareas.length; i++) {
+			pTareas[i] = new PersonaTarea("Persona " + (i+1), b, textArea);
+		}
 	}
 
-	public static void actualizar(String msg) {
+	
+
+	public static synchronized void actualizar(String msg) {
 		SwingUtilities.invokeLater(() -> textArea.append(msg));
 	}
 
@@ -55,7 +66,15 @@ public class Main extends JFrame implements WindowListener {
 		pausa.setEnabled(false);
 		reanudar.setEnabled(true);
 		textArea.append("PAUSADO\n");
-		
+		pPersonas();
+	}
+
+	private void pPersonas(){
+		for (PersonaTarea personaTarea : pTareas) {
+			synchronized(personaTarea){
+				personaTarea.interrupt();
+			}
+		}
 	}
 
 	private void reanudar(ActionEvent e) {
@@ -63,7 +82,21 @@ public class Main extends JFrame implements WindowListener {
 		reanudar.setEnabled(false);
 		textArea.append("REANUDADO\n");
 		b.notify();
+		rPersonas();
 	}
+
+
+
+
+	private void rPersonas() {
+		for (PersonaTarea personaTarea : pTareas) {
+			synchronized(personaTarea){
+				personaTarea.notify();
+			}
+		}
+	}
+
+
 
 	private void iniciar() {
 		setVisible(true);
@@ -86,6 +119,7 @@ public class Main extends JFrame implements WindowListener {
 	@Override
 	public void windowClosing(WindowEvent e) {
 		// TODO finalizar hilos de forma ordenada antes de salir
+		pPersonas();
 		System.exit(0);
 
 		
