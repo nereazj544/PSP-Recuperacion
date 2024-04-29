@@ -91,7 +91,7 @@ public class Main extends JFrame implements WindowListener {
 		 * ? Con estos metodos si que funciona, pero estan en desuso.
 		 * agente.resume();
 		 * f1.resume();
-		 * f2.resume();
+		 * f2.resume()
 		 * f3.resume();
 		 */
 		// notifyAll(); // Notificamos a todos los hilos
@@ -130,7 +130,7 @@ public class Main extends JFrame implements WindowListener {
 		// f2.stop();
 		// f3.stop();
 		// agente.stop();
-
+		
 		// Se detiene
 		f1.interrupt();
 		f2.interrupt();

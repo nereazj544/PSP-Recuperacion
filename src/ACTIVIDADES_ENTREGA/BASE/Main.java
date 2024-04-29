@@ -50,19 +50,21 @@ public class Main extends JFrame implements WindowListener {
 		pausa.setEnabled(false);
 		reanudar.setEnabled(true);
 		textArea.append("PAUSADO\n");
-		// TODO pausar fumadores y agente
+	
 	}
 
 	private void reanudar(ActionEvent e) {
 		pausa.setEnabled(true);
 		reanudar.setEnabled(false);
 		textArea.append("REANUDADO\n");
-		// TODO reanudar fumadores y agente
+		
+
+		
 	}
 
 	private void iniciar() {
 		setVisible(true);
-		// f1.start();
+		
 
 	}
 
