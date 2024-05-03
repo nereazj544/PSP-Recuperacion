@@ -1,4 +1,4 @@
-package ACTIVIDADES_ENTREGA.BASE;
+package ACTIVIDADES_ENTREGA.TIKTAK;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -22,7 +22,7 @@ public class Main extends JFrame implements WindowListener {
 	private JButton reanudar = new JButton("REANUDAR");
 
 	public Main() {
-		super(" ");
+		super("TIK TAK");
 		this.addWindowListener(this);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		Container contentPane = getContentPane();
@@ -50,13 +50,14 @@ public class Main extends JFrame implements WindowListener {
 		pausa.setEnabled(false);
 		reanudar.setEnabled(true);
 		textArea.append("PAUSADO\n");
-	
+		//TODO > Pausar los hilos
 	}
-
+	
 	private void reanudar(ActionEvent e) {
 		pausa.setEnabled(true);
 		reanudar.setEnabled(false);
 		textArea.append("REANUDADO\n");
+		//TODO > Reanudar los hilos
 		
 
 		
