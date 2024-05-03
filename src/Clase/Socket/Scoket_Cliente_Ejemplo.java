@@ -1,10 +1,12 @@
-package Clase.Socket;
+package Clase.Scoket;
 
 import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
+// import java.io.DataInputStream;
+// import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.Socket;
 
 public class Scoket_Cliente_Ejemplo {
@@ -12,20 +14,31 @@ public class Scoket_Cliente_Ejemplo {
         BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("Escribe: ");
-        String linea;
+        String linea = teclado.readLine();
 
-        while ((linea = teclado.readLine())!= null) {
-            Socket socket = new Socket("localhost", 5000);
-            try (DataInputStream in = new DataInputStream(socket.getInputStream());
-            DataOutputStream out = new DataOutputStream(socket.getOutputStream())) {
-                
-                out.writeUTF(linea);
+        while (linea != null) {
+            try (Socket socket = new Socket("localhost", 5000)){
+                BufferedReader bf = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+                while(linea != null && !linea.equalsIgnoreCase("fin")){
 
-                System.out.println(in.readUTF());
+                    pw.print(linea);
+                    pw.flush();
+    
+                    System.out.println(bf.readLine());
+                    System.out.print(">");
+                    linea = teclado.readLine();
+                    pw.close();
+                }
+                socket.shutdownOutput();
+                while ((linea = bf.readLine()) != null) {
+                    System.out.println(linea);
+                }
             } catch (Exception e) {
-                // TODO: handle exception
+                e.printStackTrace();
             }
         }
-        
+
     }
 }
+
