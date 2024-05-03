@@ -2,10 +2,13 @@ package ACTIVIDADES_ENTREGA.TIKTAK;
 
 import java.util.concurrent.Semaphore;
 
-public class TareaSonido implements Runnable{
+import static ACTIVIDADES_ENTREGA.TIKTAK.Main.actualizar;
+
+public class TareaSonido implements Runnable {
     private String sonido;
     private Semaphore semaphore;
     private Semaphore semaphore2;
+    private boolean p;
 
     public TareaSonido(String sonido, Semaphore semaphore, Semaphore semaphore2) {
         this.sonido = sonido;
@@ -15,17 +18,35 @@ public class TareaSonido implements Runnable{
 
     @Override
     public void run() {
-       try {
-           semaphore.acquire();
-           System.out.println(sonido + " ");
-           Thread.sleep(1000);
-    } catch (InterruptedException e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-    }finally{
-        semaphore2.release();
-    }
+        try {
+            
+            while (true) {
+                semaphore.acquire();
+                if (Thread.interrupted()) return;
+                if (p) {
+                    semaphore.release();
+                    semaphore2.acquire();
+                }
+                actualizar(sonido + " ");
+                Thread.sleep(1000);
+                semaphore2.release();
+            }
+
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        } finally {
+            semaphore.release();
+        }
     }
 
-    
+    public void pausar() {
+        p = true;
+    }
+
+    public void reanudar() {
+        p = false;
+        semaphore.release();
+        // notify();
+    }
+
 }

@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.concurrent.Semaphore;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,6 +21,11 @@ public class Main extends JFrame implements WindowListener {
 	private static final JTextArea textArea = new JTextArea();
 	private JButton pausa = new JButton("PAUSA");
 	private JButton reanudar = new JButton("REANUDAR");
+
+	private Semaphore s = new Semaphore(1);
+	private Semaphore s2 = new Semaphore(0);
+	private TareaSonido tic;
+	private TareaSonido tac;
 
 	public Main() {
 		super("TIK TAK");
@@ -40,6 +46,12 @@ public class Main extends JFrame implements WindowListener {
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 		pack();
 		setLocationRelativeTo(null);
+
+		tic = new TareaSonido("TIC", s, s2);
+		tac = new TareaSonido("TAC", s2, s);
+
+		new Thread(tic::run).start();;
+		new Thread(tac::run).start();;
 	}
 
 	public static void actualizar(String msg) {
@@ -51,6 +63,12 @@ public class Main extends JFrame implements WindowListener {
 		reanudar.setEnabled(true);
 		textArea.append("PAUSADO\n");
 		//TODO > Pausar los hilos
+		tic.pausar();
+		tac.pausar();
+
+		s.release();
+		// s2.release();
+
 	}
 	
 	private void reanudar(ActionEvent e) {
@@ -59,7 +77,10 @@ public class Main extends JFrame implements WindowListener {
 		textArea.append("REANUDADO\n");
 		//TODO > Reanudar los hilos
 		
+		tic.reanudar();
+		tac.reanudar();
 
+		// s.release();
 		
 	}
 
@@ -75,6 +96,8 @@ public class Main extends JFrame implements WindowListener {
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(Main::crear);
+
+		
 	}
 
 	@Override
@@ -85,17 +108,6 @@ public class Main extends JFrame implements WindowListener {
 	public void windowClosing(WindowEvent e) {
 		// TODO finalizar hilos de forma ordenada antes de salir
 		System.exit(0);
-
-		// Aqui seria:
-		/*
-		 * f1.interrupt();
-		 * 
-		 * try {
-		 * f1.join();
-		 * } catch (Exception ek) {
-		 * }
-		 * 
-		 */
 
 	}
 
