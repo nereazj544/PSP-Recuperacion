@@ -1,4 +1,4 @@
-package ACTIVIDADES_ENTREGA.CreadcionDeHilos;
+package ACTIVIDADES_ENTREGA.GeneradorDeSecuencias;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -21,11 +21,8 @@ public class Main extends JFrame implements WindowListener {
 	private JButton pausa = new JButton("PAUSA");
 	private JButton reanudar = new JButton("REANUDAR");
 
-	private CreacionHilos [] hilos;
-	private Thread[] t;
-
 	public Main() {
-		super("CREACION DE HILOS");
+		super("Generador de Secuencias");
 		this.addWindowListener(this);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		Container contentPane = getContentPane();
@@ -43,14 +40,6 @@ public class Main extends JFrame implements WindowListener {
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 		pack();
 		setLocationRelativeTo(null);
-
-		hilos = new CreacionHilos[5];
-		t = new Thread[hilos.length];
-		for (int i = 0; i < hilos.length; i++) {
-			hilos[i] = new CreacionHilos(i, (i +1) * 1000);
-			t[i] = new Thread(hilos[i]);
-			t[i].start();
-		}
 	}
 
 	public static void actualizar(String msg) {
@@ -61,28 +50,20 @@ public class Main extends JFrame implements WindowListener {
 		pausa.setEnabled(false);
 		reanudar.setEnabled(true);
 		textArea.append("PAUSADO\n");
+		// TODO > PAUSAR
 
-		for (CreacionHilos creacionHilos : hilos) {
-			creacionHilos.pausar();
-		}
-		
 	}
-	
+
 	private void reanudar(ActionEvent e) {
 		pausa.setEnabled(true);
 		reanudar.setEnabled(false);
 		textArea.append("REANUDADO\n");
-		for (CreacionHilos creacionHilos : hilos) {
-			creacionHilos.reanudar();
-		}
-		
-		
-		
+		// TODO > REANUDAR
+
 	}
 
 	private void iniciar() {
 		setVisible(true);
-		
 
 	}
 
@@ -101,8 +82,8 @@ public class Main extends JFrame implements WindowListener {
 	@Override
 	public void windowClosing(WindowEvent e) {
 		// TODO finalizar hilos de forma ordenada antes de salir
-
 		System.exit(0);
+
 	}
 
 	@Override
