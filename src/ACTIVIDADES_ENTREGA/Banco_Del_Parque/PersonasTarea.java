@@ -7,7 +7,7 @@ import java.util.concurrent.Semaphore;
 public class PersonasTarea extends Thread {
     private Banco banco;
     private Semaphore semaphore;
-    private volatile boolean pausado;
+    private boolean pausado;
 
     public PersonasTarea(String name, Banco banco, Semaphore semaphore) {
         super(name);
@@ -22,7 +22,10 @@ public class PersonasTarea extends Thread {
 
     public synchronized void reanudar() {
         this.pausado = false;
-        notify();
+        synchronized(this){
+
+            notifyAll();
+        }
     }
 
     @Override

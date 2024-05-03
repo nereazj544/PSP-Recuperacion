@@ -52,9 +52,9 @@ public class Main extends JFrame implements WindowListener {
     }
 
     private void pausa(ActionEvent e) {
-        pausa.setEnabled(false);
         reanudar.setEnabled(true);
         textArea.append("PAUSADO\n");
+        banco.pausar();
         for (PersonasTarea persona : personas) {
             persona.pausar();
         }
@@ -68,6 +68,7 @@ public class Main extends JFrame implements WindowListener {
         for (PersonasTarea persona : personas) {
             persona.reanudar();
         }
+        banco.reanudar();
         
     }
 

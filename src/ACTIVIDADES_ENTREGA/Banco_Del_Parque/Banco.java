@@ -3,16 +3,18 @@ package ACTIVIDADES_ENTREGA.Banco_Del_Parque;
 public class Banco {
 
     private int Disponible;
+    private boolean p;
     
 
     public Banco(int disponible) {
         Disponible = disponible;
+        p = false;
     }
 
 
 
     public synchronized boolean ocupar() {
-        if (Disponible > 0) {
+        if (!p && Disponible > 0) {
             Disponible--;
             return true;
         }
@@ -22,5 +24,14 @@ public class Banco {
     public void liberar() {
         Disponible++;
     }
+
+    public synchronized void pausar(){
+        p = true;
+    }
+    public synchronized void reanudar(){
+        p = false;
+        notifyAll();
+    }
+
 
 }
