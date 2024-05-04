@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.concurrent.Semaphore;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,8 +22,11 @@ public class Main extends JFrame implements WindowListener {
 	private JButton pausa = new JButton("PAUSA");
 	private JButton reanudar = new JButton("REANUDAR");
 
+	private AlmacenGlobos almacenGlobos = new AlmacenGlobos();
+	private Semaphore semaphore = new Semaphore(3);
+
 	public Main() {
-		super(" ");
+		super("GLOBOS");
 		this.addWindowListener(this);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		Container contentPane = getContentPane();
@@ -65,6 +69,16 @@ public class Main extends JFrame implements WindowListener {
 	private void iniciar() {
 		setVisible(true);
 		
+		for (int i = 0; i <= 5; i++) {
+			HinchaGlobos h = new HinchaGlobos(almacenGlobos, semaphore, getName() + i);
+			h.start();
+		}
+		for (int i = 0; i <= 5; i++) {
+			PichaGlobos p = new PichaGlobos(getName() + i, semaphore);
+		p.start();
+		}
+
+
 
 	}
 
@@ -85,16 +99,6 @@ public class Main extends JFrame implements WindowListener {
 		// TODO finalizar hilos de forma ordenada antes de salir
 		System.exit(0);
 
-		// Aqui seria:
-		/*
-		 * f1.interrupt();
-		 * 
-		 * try {
-		 * f1.join();
-		 * } catch (Exception ek) {
-		 * }
-		 * 
-		 */
 
 	}
 
