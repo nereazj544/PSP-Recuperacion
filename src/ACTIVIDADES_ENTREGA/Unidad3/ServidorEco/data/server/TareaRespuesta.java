@@ -9,7 +9,7 @@ import java.net.Socket;
 public class TareaRespuesta implements Runnable {
 
 	private Socket socket;
-	
+
 	public TareaRespuesta(Socket socket) {
 		this.socket = socket;
 	}
@@ -17,9 +17,9 @@ public class TareaRespuesta implements Runnable {
 	@Override
 	public void run() {
 		try (DataInputStream in = new DataInputStream(socket.getInputStream());
-			 DataOutputStream out = new DataOutputStream(socket.getOutputStream())) {
+				DataOutputStream out = new DataOutputStream(socket.getOutputStream())) {
 			String s;
-			while (true) 
+			while (true)
 				try {
 					s = in.readUTF();
 					out.writeUTF(s);
