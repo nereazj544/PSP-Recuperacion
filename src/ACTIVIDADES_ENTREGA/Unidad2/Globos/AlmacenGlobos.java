@@ -1,11 +1,12 @@
 package ACTIVIDADES_ENTREGA.Unidad2.Globos;
+
 import static ACTIVIDADES_ENTREGA.Unidad2.Globos.Main.actualizar;
 
 public class AlmacenGlobos {
     private int Globos = 10;
     private int GlobosEn = 0;
 
-    public synchronized int enG(){
+    public synchronized int enG() {
         if (GlobosEn < Globos) {
             GlobosEn++;
             actualizar("GLOBO " + GlobosEn + " ENTREGADO\n");
@@ -14,6 +15,5 @@ public class AlmacenGlobos {
 
         return -1;
     }
-
 
 }

@@ -19,10 +19,11 @@ public class HinchaGlobos extends Thread {
         try {
             while (true) {
                 int globo = almacenGlobos.enG();
-                if(globo == -1);
+                if (globo == -1)
+                    ;
                 semaphore.acquire();
                 for (int i = 0; i < 5; i++) {
-                    actualizar("GOBLO " + globo + " Volumen " + (i+1) + "\n");
+                    actualizar("GOBLO " + globo + " Volumen " + (i + 1) + "\n");
                     Thread.sleep(100);
                 }
 
