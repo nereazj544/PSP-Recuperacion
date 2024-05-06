@@ -16,7 +16,7 @@ public class Conexion {
     }
 
     public void Finalizar() {
-        //! El repcetor es el que finalizara la conexion
+        //! El repcetor es el que finalizara la conexion, se elimara a si mismo. Se ha de finalizar de manera ordenada
 
         //TODO: EL RECPTROR TIENE QUE INVOCAR ESTE METODO
 
