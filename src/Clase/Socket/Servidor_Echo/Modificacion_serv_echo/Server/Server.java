@@ -1,9 +1,9 @@
 package Clase.Scoket.Modificacion_serv_echo.Server;
 
 /**
- * Tarea
+ * Server
  */
-public class Tarea {
+public class Server {
 
     
 }
