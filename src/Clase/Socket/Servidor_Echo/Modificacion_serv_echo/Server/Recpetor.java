@@ -1,7 +1,6 @@
-package Clase.Scoket.Modificacion_serv_echo.Server;
+package Clase.Socket.Servidor_Echo.Modificacion_serv_echo.Server;
 
 import java.net.Socket;
-import java.time.chrono.ChronoZonedDateTime;
 
 public class Recpetor implements Runnable {
     private Socket socket;

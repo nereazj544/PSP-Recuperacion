@@ -1,4 +1,4 @@
-package Clase.Scoket.Modificacion_serv_echo.Server;
+package Clase.Socket.Servidor_Echo.Modificacion_serv_echo.Server;
 
 import java.net.Socket;
 import java.util.concurrent.ExecutorService;
@@ -21,7 +21,7 @@ public class Conexion {
         //TODO: EL RECPTROR TIENE QUE INVOCAR ESTE METODO
 
         //!LO ULTIMO
-        Server.c.remove(this);
+        Server.conexions.remove(this);
     }
 
 }

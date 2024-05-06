@@ -1,4 +1,4 @@
-package Clase.Scoket.Modificacion_serv_echo.client;
+package Clase.Socket.Servidor_Echo.Modificacion_serv_echo.client;
 
 
 import java.awt.BorderLayout;
