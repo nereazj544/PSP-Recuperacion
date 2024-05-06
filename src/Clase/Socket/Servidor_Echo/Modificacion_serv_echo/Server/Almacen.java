@@ -8,7 +8,7 @@ public class Almacen {
     private static final int MAX = 100;
 
     public synchronized void almacenar(String s) throws InterruptedException {
-        while (almacen.size() == 100) {
+        while (almacen.size() == MAX) {
             wait();
         }
         almacen.offer(s);
