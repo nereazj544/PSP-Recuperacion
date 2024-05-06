@@ -20,6 +20,8 @@ public class Conexion {
 
         //TODO: EL RECPTROR TIENE QUE INVOCAR ESTE METODO
 
+        //!LO ULTIMO
+        Server.c.remove(this);
     }
 
 }
