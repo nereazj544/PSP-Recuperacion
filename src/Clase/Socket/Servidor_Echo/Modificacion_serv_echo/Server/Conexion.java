@@ -11,6 +11,8 @@ public class Conexion {
 
     public Conexion(Socket socket, ExecutorService service) {
         this.socket = socket;
+        emisor = new Emisor(socket);
+        recpetor = new Recpetor(socket, this);
     }
 
     public void Finalizar() {
