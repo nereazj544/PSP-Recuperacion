@@ -11,17 +11,18 @@ import java.util.concurrent.Executors;
  * Server
  */
 public class Server {
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 		ServerSocket serverSocket = new ServerSocket(5000);
 		ExecutorService executor = Executors.newFixedThreadPool(100);
+		Almacen a = new Almacen();
 		while (true) {
 			Socket socket = serverSocket.accept();
-			Recpetor r = new Recpetor(socket);
-			Emisor e = new Emisor(socket);
+			Recpetor r = new Recpetor(socket, a);
+			Emisor e = new Emisor(socket, a);
 			executor.execute(r);
 			executor.execute(e);
+
 		}
 	}
 
-    
 }

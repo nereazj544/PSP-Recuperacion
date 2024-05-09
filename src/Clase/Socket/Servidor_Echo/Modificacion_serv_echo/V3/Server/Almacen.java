@@ -1,28 +1,17 @@
 package Clase.Scoket.Modificacion_serv_echo.V3.Server;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class Almacen {
-    private LinkedList<String> almacen = new LinkedList<>();
-
-    private static final int MAX = 100;
-
-    public synchronized void almacenar(String s) throws InterruptedException {
-        while (almacen.size() == MAX) {
-            wait();
-        }
-        almacen.offer(s);
-        notify(); // Es suficinete un notify porque solo hay dos hilos compitiendo
+    private Queue<String> mensajes = new LinkedList<>();
+    
+    public synchronized void aMensaje (String mensaje){
+        mensajes.add(mensaje);
     }
 
-    public synchronized String retirar() throws InterruptedException {
-        while (almacen.isEmpty()) {
-            wait();
-        }
-        String s = almacen.poll();
-        notify();
-        return s;
+    public synchronized String oMensjae(){
+        return mensajes.poll();
     }
-
     // ! END CLASS
 }
