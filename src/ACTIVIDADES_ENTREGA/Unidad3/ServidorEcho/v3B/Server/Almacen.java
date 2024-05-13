@@ -1,30 +1,30 @@
-package Clase.Scoket.clienteservidorecho.v4.servidor;
+package Clase.Scoket.clienteservidorecho.v3.servidor;
 
-import java.io.DataOutputStream;
 import java.util.LinkedList;
 
 public class Almacen {
 
-	private LinkedList<Item> cola = new LinkedList<>();
+	private LinkedList<String> almacen = new LinkedList<>();
 	private static final int MAX = 1000;
 	
-	public synchronized void almacenar(String s, DataOutputStream out) {
-		while (cola.size() == MAX)
+	public synchronized void almacenar(String s) {
+		while (almacen.size() == MAX)
 			try {
 				wait();
 			} catch (InterruptedException e) {}
-		cola.offer(new Item(s, out));
+		almacen.offer(s);
 		notify();
 	}
 	
-	public synchronized Item retirar() {
+	public synchronized String retirar() {
 		try {
-			while (cola.isEmpty())
+			while (almacen.isEmpty())
 				wait();
-			Item i = cola.poll();
+			String s = almacen.poll();
 			notify();
-			return i;
+			return s;
 		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
 			return null;
 		}
 	}

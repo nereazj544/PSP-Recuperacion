@@ -1,4 +1,4 @@
-package Clase.Scoket.clienteservidorecho.v4.servidor;
+package Clase.Scoket.clienteservidorecho.v3.servidor;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -9,14 +9,13 @@ import java.util.concurrent.Executors;
 public class ServidorEcho {
 
 	public static void main(String[] args) throws IOException {
-		try (ServerSocket serverSocket = new ServerSocket(9999)) {
+		try (ServerSocket serverSocket = new ServerSocket(5000)) {
 			Almacen almacen = new Almacen();
-			new Emisor(almacen).start();
 			ExecutorService executor = Executors.newFixedThreadPool(1000);
-			System.out.println("Servidor ECHO escuchando en puerto 9999");
+			System.out.println("Servidor ECHO escuchando en puerto 5000");
 			while (true) {
 				Socket socket = serverSocket.accept();
-				executor.submit(new Receptor(socket, almacen));
+				executor.submit(new Receptor(socket, almacen, executor));
 			}
 		}
 	}
