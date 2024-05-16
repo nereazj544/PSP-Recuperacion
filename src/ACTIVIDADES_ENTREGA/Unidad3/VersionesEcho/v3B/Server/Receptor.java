@@ -7,6 +7,9 @@ import java.net.Socket;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Receptor implements Runnable {
 
@@ -14,21 +17,35 @@ public class Receptor implements Runnable {
 	private Almacen almacen;
 	private Future<?> emisor;
 
-	public Receptor(Socket socket, Almacen almacen, ExecutorService executor) {
+	private final Lock lock = new ReentrantLock();
+	private final Condition c = lock.newCondition();
+	public Receptor(Socket socket, Almacen almacen, ExecutorService executor, Lock lock, Condition c) {
 		this.socket = socket;
 		this.almacen = almacen;
-		emisor = executor.submit(new Emisor(socket, almacen));
+		emisor = executor.submit(new Emisor(socket, lock, c, almacen));
 	}
 
 	@Override
 	public void run() {
 		try {
+			socket.setSoTimeout(5);
 			DataInputStream in = new DataInputStream(socket.getInputStream());
 			String s;
 			while (true) {
 				s = in.readUTF();
 				System.out.println(socket.getInetAddress() + " -> " + s);
-				almacen.almacenar(s);
+				try {
+					almacen.almacenar(s);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				lock.lock();
+				try{
+					c.signalAll();
+				}finally{
+					lock.unlock();
+				}
 			}
 		} catch (EOFException e) {
 			System.out.println(socket.getInetAddress() + ": EOF");

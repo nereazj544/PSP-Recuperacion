@@ -77,7 +77,7 @@ public class Main extends JFrame {
 	}
 	
 	private void enviar(ActionEvent e) {
-		con.enviar(texto.getText());
+		con.enviar(texto.getText(), 3);
 		texto.setText("");
 		texto.requestFocus();
 	}

@@ -5,6 +5,9 @@ import java.awt.event.ActionEvent;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -18,6 +21,10 @@ public class Conector extends JPanel {
 	private JTextField dir = new JTextField("localhost");
 	private Socket socket;
 	private DataOutputStream out;
+
+	private final Lock lock = new ReentrantLock();
+	private final Condition c = lock.newCondition();
+
 
 	public Conector(Main frame) {
 		this.frame = frame;
@@ -76,13 +83,16 @@ public class Conector extends JPanel {
 		}
 	}
 
-	public boolean enviar(String texto) {
+	public boolean enviar(String texto, long timeOut) {
 		if (out != null && texto.length() > 0) {
+			lock.lock();
 			try {
 				out.writeUTF(texto);
 				return true;
 			} catch (IOException e) {
 				e.printStackTrace();
+			}finally{
+				lock.unlock();
 			}
 		}
 		return false;
