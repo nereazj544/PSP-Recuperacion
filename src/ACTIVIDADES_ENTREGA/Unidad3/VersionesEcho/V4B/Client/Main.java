@@ -1,4 +1,4 @@
-package Clase.Scoket.clienteservidorecho.v4.cliente;
+package ACTIVIDADES_ENTREGA.Unidad3.VersionesEcho.V4B.Client;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
